@@ -1,4 +1,4 @@
-# Use the ContributionsCollection to retrieve contributions counts in specific organizations within a date range. Using dummy dates and sample contributors
+# Use the ContributionsCollection to retrieve contributions counts in specific organizations within a date range. Using dummy dates and sample contributors. Using aliases to aggregate results from an array of users in 1 query.
 
 query {
  rz: user(login: "robzienert") {
