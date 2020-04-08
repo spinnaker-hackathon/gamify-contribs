@@ -1,0 +1,64 @@
+# Use the ContributionsCollection to retrieve contributions counts in specific organizations within a date range. Using dummy dates and sample contributors
+
+query {
+ rz: user(login: "robzienert") {
+    login,
+    contributionsCollection(organizationID: "MDEyOk9yZ2FuaXphdGlvbjc2MzQxODI=", from:"2020-01-01T01:01:00", to: "2020-04-01T01:01:00") {
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      totalIssueContributions
+      totalCommitContributions
+      totalRepositoryContributions
+      totalRepositoriesWithContributedCommits
+      totalRepositoriesWithContributedIssues
+      totalRepositoriesWithContributedPullRequestReviews
+
+      }
+    }
+dnilasor: user(login: "dnilasor") {
+    login,
+    contributionsCollection(organizationID: "MDEyOk9yZ2FuaXphdGlvbjc2MzQxODI=", from:"2020-01-01T01:01:00", to: "2020-04-01T01:01:00") {
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      totalIssueContributions
+      totalCommitContributions
+      totalRepositoryContributions
+      totalRepositoriesWithContributedCommits
+      totalRepositoriesWithContributedIssues
+      totalRepositoriesWithContributedPullRequestReviews
+
+      }
+    }
+  }
+
+
+
+
+
+# Use the search function to find the authors of all PR comments in an organization within a date range. Using dummy dates 
+
+  query {
+  search(first: 100, query: "org:spinnaker updated:2020-01-01..2020-02-01 type:pr" type: ISSUE){
+    nodes {
+      ... on PullRequest {
+        state
+        resourcePath
+        comments(last:100) {
+          nodes {
+            author {
+              login
+            }
+          }
+        }
+        reviews(last:100) {
+          nodes {
+            author{
+              login
+            }
+          }
+        }
+      }
+    }
+  }
+ 
+}
