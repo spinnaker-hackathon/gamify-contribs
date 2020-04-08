@@ -1,4 +1,4 @@
-# Use the ContributionsCollection to retrieve contributions counts in specific organizations within a date range. Using dummy dates and sample contributors. Using aliases to aggregate results from an array of users in 1 query.
+# Use the ContributionsCollection to retrieve contribution counts in specific organizations within a date range. Using dummy dates and sample contributors. Using aliases to aggregate results from an array of users in 1 query.
 
 query {
  rz: user(login: "robzienert") {
@@ -32,9 +32,6 @@ dnilasor: user(login: "dnilasor") {
   }
 
 
-
-
-
 # Use the search function to find the authors of all PR comments in an organization within a date range. Using dummy dates 
 
   query {
@@ -62,6 +59,7 @@ dnilasor: user(login: "dnilasor") {
   }
  
 }
+
 
 # Use the search function to find the authors of all Issue comments in an organization within a date range. Using dummy dates 
 
