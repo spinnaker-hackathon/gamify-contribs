@@ -62,3 +62,26 @@ dnilasor: user(login: "dnilasor") {
   }
  
 }
+
+# Use the search function to find the authors of all Issue comments in an organization within a date range. Using dummy dates 
+
+query {
+  search(first: 100, query: "org:spinnaker updated:2020-01-01..2020-02-01 type:issue" type: ISSUE){
+    nodes {
+      ... on Issue {
+        state
+        resourcePath
+        title
+        comments(last:100) {
+          nodes {
+            author {
+              login
+            }
+          }
+        }
+        
+      }
+    }
+  }
+ 
+}
